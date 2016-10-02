@@ -13,7 +13,8 @@
   "author": "Tal Globus <talglobus@gmail.com>",
   "dependencies": {
     "express": ">= 4.14.0",
-    "path": ">= 0.12.7"
+    "path": ">= 0.12.7",
+    "fs": "*"
   },
   "license": "UNLICENSED",
   "bugs": {

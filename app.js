@@ -8,7 +8,10 @@ var app = express();
 const PORT = process.env.PORT || 8080;
 
 app.get('/', function (req, res) {
-	res.sendFile(path.join(__dirname + '/index.html'));
+	res.writeHead(200, {"Content-Type": "text/html"});
+	// res.sendFile(path.join(__dirname + '/index.html'));
+	fs.createReadStream(path.resolve(__dirname, '/index.html'))
+		.pipe(res);
 	console.log("Served file " + path.join(__dirname + '/index.html'));
 	res.end();
 });
