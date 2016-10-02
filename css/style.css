@@ -205,6 +205,10 @@ h1, h2, h3, h4, h5, h6 {
   transform-origin: 0 0;
 }
 
+.iti-flag {
+  background-image: url("images/flags.png");
+}
+
 #leaflet {
   align-content: center;
   height:600px;
@@ -212,6 +216,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: auto;
   margin-right: auto;
   position: fixed;
+}
+
+#submit {
+  color: black;
 }
 
 #fh5co-header {
