@@ -172,10 +172,12 @@
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
 						<h3>Enter your phone number to receive safety and <br> efficiency alerts during your travel routes!</h3>
 				
-						<input id="phone" class="form-control" color = "white" placeholder="Phone" type="text">
-						<br>
+							<form name = "phoneForm" id = "phone-form">
+								<input id = "phone-input" class = "form-control" color= "white" placeholder="Phone" type = "tel" pattern = "\(?\d{3}\)?[\s|\-]?\d{3}[\s|\-]?\d{4}" title = "Valid 10-digit US phone number" required>
+								<br>
+								<input id = "breezy-phone-submit" class = "btn btn-primary btn-lg" value = "Submit" type = "submit">
+							</form>
 
-						<input class="btn btn-primary btn-lg" value="Submit" type="submit">
 						</div>
 					</div>
 				</div>
@@ -320,6 +322,8 @@
 
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
+
+	<script src="js/breezy.js"></script>
 
 	</body>
 </html>
