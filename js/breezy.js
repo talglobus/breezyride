@@ -2,21 +2,24 @@
  * Created by tal on 10/2/16.
  */
 
-// $(document).ready(function() {
-// 	// $('#breezy-phone-submit').click(function() {
-// 	// 	var phoneInput = $('#phone');
-// 	// 	phoneInput.val();
-// 	// });
-// });
-
-// function checkPhone(a, b) {
-// 	console.log(a);
-// 	console.log(b);
-// 	console.log(b);
-// }
-
-
 $('#phone-form').submit(function (e) {
-	console.log(e.target[0].value.split('-').join('').split('/').join('').split('(').join('').split(')').join('').split(' ').join(''));
+	var phone = e.target[0].value.split('-').join('').split('/').join('').split('(').join('').split(')').join('').split(' ').join('');
+
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			cb(xhr.responseText);
+		}
+	};
+
+	xhr.overrideMimeType('text/plain');
+	xhr.open("GET", ("/welcome/" + phone), true);
+	xhr.send();
+
+	// xhttp.open("GET", ("http://www.breezyride.com/welcome/" + phone), true);
+	// xhttp.send();
+
+	// e.stopPropagation();
+	console.log("Logged");
 	return false;
 });

@@ -4,6 +4,7 @@
 var express = require('express');
 var path = require('path');
 var fs = require('fs');
+var sendSMS = require('./twilio-run');
 var app = express();
 
 const PORT = process.env.PORT || 8080;
@@ -27,7 +28,7 @@ app.get('/', function (req, res) {
 
 	res.sendFile(FILE, options, function (err) {
 		if (err) {
-			console.log(err);
+			// console.log(err);
 			res.status(err.status).end();
 		}
 		else {
@@ -35,6 +36,9 @@ app.get('/', function (req, res) {
 			res.end();
 		}
 	});
+
+	// sendSMS("4435591587", "Hi")
+	console.log("main");
 });
 
 app.get('/logo.png', function(req, res) {
@@ -56,7 +60,7 @@ app.get('/logo.png', function(req, res) {
 	res.sendFile(FILE, options, function (err) {
 		if (err) {
 			console.log("An error occurred while attempting to serve " + FILE);
-			console.log(err);
+			// console.log(err);
 			res.status(err.status).end();
 		}
 		else {
@@ -96,6 +100,12 @@ app.get('/dataPredict/trafficRisk.html', function(req, res) {
 
 app.get('/route.html', function(req, res) {
 	allowServeFromDir(req, res, 'html');
+});
+
+app.get('/welcome/*', function(req, res) {
+	var phone = req.url.split('/')[2];
+	console.log("New Alert User: " + phone);
+	sendSMS(phone, "Welcome to the BreezyRide alert system. We'll now let you know when you could be traveling more safely, quickly or efficiently.");
 });
 
 app.listen(PORT, function () {
@@ -147,7 +157,7 @@ function allowServeFromDir(req, res, type) {
 	res.sendFile(FILE, options, function (err) {
 		if (err) {
 			console.log("An error occurred while attempting to serve " + FILE);
-			console.log(err);
+			// console.log(err);
 			res.status(err.status).end();
 		}
 		else {
