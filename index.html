@@ -7,7 +7,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BreezyRide</title>
+	<title>Breezy Ride &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -42,6 +42,11 @@
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+
+	<!-- added to enable use of the Pacifico font on our website.-->
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico"/>
+
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -54,24 +59,7 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
-	<!-- 
-	Default Theme Style 
-	You can change the style.css (default color purple) to one of these styles
-	
-	1. pink.css
-	2. blue.css
-	3. turquoise.css
-	4. orange.css
-	5. lightblue.css
-	6. brown.css
-	7. green.css
-
-	-->
 	<link rel="stylesheet" href="css/style.css">
-
-	<!-- Styleswitcher ( This style is for demo purposes only, you may delete this anytime. ) -->
-	<!--	<link rel="stylesheet" id="theme-switch" href="css/style.css"> -->
-	<!-- End demo purposes only -->
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -89,16 +77,17 @@
 		        <div class="navbar-header">
 		        	<!-- Mobile Toggle Menu Button -->
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		         <a class="navbar-brand" href="index.html">BreezyRide</a>
+		         <a class="navbar-brand" href="index.html" id="BreezyHeader" >Breezy Ride</a> 
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
 		            <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
-		            <li><a href="#" data-nav-section="work"><span>Visual</span></a></li>
-		            <!--<li><a href="#" data-nav-section="testimonials"><span>Testimonials</span></a></li>-->
-		            <!--<li><a href="#" data-nav-section="services"><span>Services</span></a></li>-->
+		            <!--li><a href="#" data-nav-section="work"><span>Visual</span></a></li-->
+		            <li><a href="#" data-nav-section="visuals"><span>Visuals</span></a></li>
+		            <!--li><a href="#" data-nav-section="testimonials"><span>Testimonials</span></a></li-->
+		            <!--li><a href="#" data-nav-section="services"><span>Services</span></a></li-->
 		            <li><a href="#" data-nav-section="about"><span>About</span></a></li>
-		            <li><a href="#" data-nav-section="contact"><span>Contact</span></a></li>
+		            <li><a href="#" data-nav-section="contact"><span>Contact Us</span></a></li>
 		          </ul>
 		        </div>
 			    </nav>
@@ -113,9 +102,9 @@
 				<div class="text-inner">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-						<img src = "logo.png" width = "50%" height = "50%"><br><br>
-							<h1 class="to-animate">Helping you avoid traffic and accidents.</h1>
-							<h2 class="to-animate">Get there faster and safer! </h2>
+							<img src="images/logo.png">
+							<h1 class="to-animate">Lyft Drivers, Get there Faster and Safer, in a Breeze!</h1>
+							<!--h2 class="to-animate">Another free HTML5 bootstrap template by <a href="http://freehtml5.co/" target="_blank" title="Free HTML5 Bootstrap Templates">FREEHTML5.co</a> released under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons 3.0</a></h2-->
 						</div>
 					</div>
 				</div>
@@ -124,56 +113,15 @@
 		<div class="slant"></div>
 	</section>
 
-	<section id="fh5co-intro">
-		<div class="container">
-			<div class="row row-bottom-padded-lg">
-				<div class="fh5co-block to-animate" style="background-image: url(images/img_7.jpg);">
-					<div class="overlay-darker"></div>
-					<div class="overlay"></div>
-					<div class="fh5co-text">
-						<i class="fh5co-intro-icon icon-bulb"></i>
-						<h2>Plan</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#" class="btn btn-primary">Get In Touch</a></p>
-					</div>
-				</div>
-				<div class="fh5co-block to-animate" style="background-image: url(images/img_8.jpg);">
-					<div class="overlay-darker"></div>
-					<div class="overlay"></div>
-					<div class="fh5co-text">
-						<i class="fh5co-intro-icon icon-wrench"></i>
-						<h2>Develop</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#" class="btn btn-primary">Click Me</a></p>
-					</div>
-				</div>
-				<div class="fh5co-block to-animate" style="background-image: url(images/img_10.jpg);">
-					<div class="overlay-darker"></div>
-					<div class="overlay"></div>
-					<div class="fh5co-text">
-						<i class="fh5co-intro-icon icon-rocket"></i>
-						<h2>Launch</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#" class="btn btn-primary">Why Us?</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="row watch-video text-center to-animate">
-				<span>Watch the video</span>
-
-				<a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo btn-video"><i class="icon-play2"></i></a>
-			</div>
-		</div>
-	</section>
-
-	<section id="fh5co-work" data-section="work">
+	<!--p>Visuals section should go here</p-->
+	<section id="fh5co-visuals" data-section="visuals">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-center">
-					<h2 class="to-animate">Work</h2>
+					<h2 class="to-animate">Visuals</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+							<h3>View the graphical information below to see how this site can help Lyft drivers save valuable time while driving.</h3>
 						</div>
 					</div>
 				</div>
@@ -273,220 +221,43 @@
 					</a>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12 text-center to-animate">
-					<p>* Demo images from <a href="http://plmd.me/" target="_blank">plmd.me</a></p>
-				</div>
-			</div>
 		</div>
 	</section>
 
-	<section id="fh5co-testimonials" data-section="testimonials">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 section-heading text-center">
-					<h2 class="to-animate">Testimonials</h2>
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="box-testimony">
-						<blockquote class="to-animate-2">
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-						</blockquote>
-						<div class="author to-animate">
-							<figure><img src="images/person1.jpg" alt="Person"></figure>
-							<p>
-							Jean Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="box-testimony">
-						<blockquote class="to-animate-2">
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
-						</blockquote>
-						<div class="author to-animate">
-							<figure><img src="images/person2.jpg" alt="Person"></figure>
-							<p>
-							John Doe, Senior UI <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="box-testimony">
-						<blockquote class="to-animate-2">
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. &rdquo;</p>
-						</blockquote>
-						<div class="author to-animate">
-							<figure><img src="images/person3.jpg" alt="Person"></figure>
-							<p>
-							Chris Nash, Director <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span>
-							</p>
-						</div>
-					</div>
-				</div>
-				
-				
-			</div>
-		</div>
-	</section>
-
-
-	<section id="fh5co-services" data-section="services">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 section-heading text-left">
-					<h2 class=" left-border to-animate">Services</h2>
-					<div class="row">
-						<div class="col-md-8 subtext to-animate">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
-					<i class="icon to-animate-2 icon-anchor"></i>
-					<h3>Brand &amp; Strategy</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-				</div>
-				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
-					<i class="icon to-animate-2 icon-layers2"></i>
-					<h3>Web &amp; Interface</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-				</div>
-
-				<div class="clearfix visible-sm-block"></div>
-
-				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
-					<i class="icon to-animate-2 icon-video2"></i>
-					<h3>Photo &amp; Video</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-				</div>
-				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
-					<i class="icon to-animate-2 icon-monitor"></i>
-					<h3>CMS &amp; eCommerce</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-				</div>
-				
-			</div>
-		</div>
-	</section>
-	
 	<section id="fh5co-about" data-section="about">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 section-heading text-center">
-					<h2 class="to-animate">About</h2>
+				<div class="col-md-12 section-heading text-left">
+					<h2 class=" left-border to-animate">About</h2>
 					<div class="row">
-						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-						</div>
+						<div class="col-md-8 subtext to-animate">
+					
+						<h3>The Breezy Ride team is an organization that has put serious thought into providing a resource that we believe will help Lyft drivers to avoid situations in which their time is wasted by being stuck in traffic unnecessarily.</h3>
+
+						<h3>This web application is meant to provide the following content to benefit Lyft drivers:</h3>
+
+						<ul>
+							<li> Information to help drivers avoid areas prone to traffic congestion. More specifically, research has allowed us to provide predictions of areas likely to become congested in the near future to give insight to Lyft drivers.</li>
+							<br>
+							<li> Information to help drivers avoid areas with a probability of high accidents.</li>
+								</ul>
 					</div>
+
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="fh5co-person text-center to-animate">
-						<figure><img src="images/person1.jpg" alt="Image"></figure>
-						<h3>Jean Smith</h3>
-						<span class="fh5co-position">Web Designer</span>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<ul class="social social-circle">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-person text-center to-animate">
-						<figure><img src="images/person2.jpg" alt="Image"></figure>
-						<h3>Rob Smith</h3>
-						<span class="fh5co-position">Web Developer</span>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<ul class="social social-circle">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-github"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-person text-center to-animate">
-						<figure><img src="images/person3.jpg" alt="Image"></figure>
-						<h3>Larry Ben</h3>
-						<span class="fh5co-position">Web Designer</span>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<ul class="social social-circle">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+		</div>
 		</div>
 	</section>
 	
-	<section id="fh5co-counters" style="background-image: url(images/full_image_1.jpg);" data-stellar-background-ratio="0.5">
-		<div class="fh5co-overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 section-heading text-center to-animate">
-					<h2>Fun Facts</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="fh5co-counter to-animate">
-						<i class="fh5co-counter-icon icon-briefcase to-animate-2"></i>
-						<span class="fh5co-counter-number js-counter" data-from="0" data-to="89" data-speed="5000" data-refresh-interval="50">89</span>
-						<span class="fh5co-counter-label">Finished projects</span>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="fh5co-counter to-animate">
-						<i class="fh5co-counter-icon icon-code to-animate-2"></i>
-						<span class="fh5co-counter-number js-counter" data-from="0" data-to="2343409" data-speed="5000" data-refresh-interval="50">2343409</span>
-						<span class="fh5co-counter-label">Line of codes</span>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="fh5co-counter to-animate">
-						<i class="fh5co-counter-icon icon-cup to-animate-2"></i>
-						<span class="fh5co-counter-number js-counter" data-from="0" data-to="1302" data-speed="5000" data-refresh-interval="50">1302</span>
-						<span class="fh5co-counter-label">Cup of coffees</span>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="fh5co-counter to-animate">
-						<i class="fh5co-counter-icon icon-people to-animate-2"></i>
-						<span class="fh5co-counter-number js-counter" data-from="0" data-to="52" data-speed="5000" data-refresh-interval="50">52</span>
-						<span class="fh5co-counter-label">Happy clients</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
+	
 	<section id="fh5co-contact" data-section="contact">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-center">
-					<h2 class="to-animate">Get In Touch</h2>
+					<h2 class="to-animate">Contact Us</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+							<h3>If a Lyft driver has any concerns regarding this website resource, the Breezy Ride Team can be contacted using the information below.</h3>
 						</div>
 					</div>
 				</div>
@@ -497,11 +268,10 @@
 					<ul class="fh5co-contact-info">
 						<li class="fh5co-contact-address ">
 							<i class="icon-home"></i>
-							5555 Love Paradise 56 New Clity 5655, <br>Excel Tower United Kingdom
+							10216 ITE Building <br> 473 Blue Bench Corridor Way <br> Baltimore County, MD 21250
 						</li>
-						<li><i class="icon-phone"></i> (123) 465-6789</li>
-						<li><i class="icon-envelope"></i>info@freehtml5.co</li>
-						<li><i class="icon-globe"></i> <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></li>
+						<li><i class="icon-phone"></i> (415) 527-3399</li>
+						<li><i class="icon-envelope"></i>breezyrideteam@gmail.com</li>
 					</ul>
 				</div>
 
@@ -531,70 +301,7 @@
 
 			</div>
 		</div>
-		<div id="map" class="to-animate"></div>
 	</section>
-	
-	
-	<footer id="footer" role="contentinfo">
-		<a href="#" class="gotop js-gotop"><i class="icon-arrow-up2"></i></a>
-		<div class="container">
-			<div class="">
-				<div class="col-md-12 text-center">
-					<p>&copy; Elate Free HTML5. All Rights Reserved. <br>Created by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Images: <a href="http://pexels.com/" target="_blank">Pexels</a>, <a href="http://plmd.me/" target="_blank">plmd.me</a></p>
-					
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="social social-circle">
-						<li><a href="#"><i class="icon-twitter"></i></a></li>
-						<li><a href="#"><i class="icon-facebook"></i></a></li>
-						<li><a href="#"><i class="icon-youtube"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
-	
-	
-	<!-- For demo purposes Only ( You may delete this anytime :-) -->
-	<div id="colour-variations">
-		<a class="option-toggle"><i class="icon-gear"></i></a>
-		<h3>Preset Colors</h3>
-		<ul>
-			<li>
-				<a href="javascript: void(0);" data-theme="style">
-					<span style="background: #3f95ea;"></span>
-					<span style="background: #52d3aa;"></span>
-					<span style="background: #f2f2f2;"></span>
-				</a>
-			</li>
-			<li>
-				<a href="javascript: void(0);" data-theme="style2">
-					<span style="background: #329998;"></span>
-					<span style="background: #6cc99c;"></span>
-					<span style="background: #f2f2f2;"></span>
-				</a>
-			</li>
-			<li>
-				<a href="javascript: void(0);" data-theme="style3">
-					<span style="background: #9f466e;"></span>
-					<span style="background: #c24d67;"></span>
-					<span style="background: #f2f2f2;"></span>
-				</a>
-			</li>
-			<li>
-				<a href="javascript: void(0);" data-theme="style4">
-					<span style="background: #21825C;"></span>
-					<span style="background: #A4D792;"></span>
-					<span style="background: #f2f2f2;"></span>
-				</a>
-			</li>
-			
-		</ul>
-	</div>
-	<!-- End demo purposes only -->
-
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
