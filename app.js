@@ -6,6 +6,7 @@ var path = require('path');
 var fs = require('fs');
 var sendSMS = require('./twilio-run');
 var app = express();
+var handleLyft = require('./handleLyft.js')();
 
 const PORT = process.env.PORT || 8080;
 
