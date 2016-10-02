@@ -61,6 +61,35 @@ app.get('/fonts/*', function (req, res) {
 	allowServeFromDir(req, res, 'font');
 });
 
+app.get('/favicon.ico', function(req, res) {
+	const FILE = './favicon.ico';
+
+	res.statusCode = 200;
+	// res.sendFile();
+	// res.write("Working");
+
+	var options = {
+		root: __dirname,
+		dotfiles: 'deny',
+		headers: {
+			"Content-Type": "image/x-icon",
+			'x-timestamp': Date.now(),
+			'x-sent': true
+		}
+	};
+
+	res.sendFile(FILE, options, function (err) {
+		if (err) {
+			console.log(err);
+			res.status(err.status).end();
+		}
+		else {
+			console.log('Sent:', FILE);
+			res.end();
+		}
+	});
+});
+
 app.listen(PORT, function () {
 	console.log('Example app listening on port ' + PORT + '!');
 });
@@ -94,7 +123,7 @@ function allowServeFromDir(req, res, type) {
 	res.sendFile(FILE, options, function (err) {
 		if (err) {
 			console.log("An error occurred while attempting to serve " + FILE);
-			console.log(err);
+			// console.log(err);
 			res.status(err.status).end();
 		}
 		else {
