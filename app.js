@@ -86,6 +86,10 @@ app.get('/trafficRisk_files/*', function (req, res) {
 	allowServeFromDir(req, res, 'js');
 });
 
+app.get('/dataPredict/trafficRisk_files/*', function (req, res) {
+	allowServeFromDir(req, res, 'js');
+});
+
 app.get('/dataPredict/trafficRisk.html', function(req, res) {
 	allowServeFromDir(req, res, 'html');     // HTML is not an expected value here, but the variable is html by default
 });
@@ -104,21 +108,37 @@ function allowServeFromDir(req, res, type) {
 		headerMIME = "text/css";
 	} else if (type == 'font') {
 		headerMIME = "application/font-woff";
+	} else if (type == '') {
+		headerMIME = "";
 	}
 
 	const FILE = req.url;
 
 	res.statusCode = 200;
 
-	var options = {
-		root: __dirname,
-		dotfiles: 'deny',
-		headers: {
-			"Content-Type": headerMIME,
-			'x-timestamp': Date.now(),
-			'x-sent': true
-		}
-	};
+	if (headerMIME) {
+		var options = {
+			root: __dirname,
+			dotfiles: 'deny',
+			headers: {
+				"Content-Type": headerMIME,
+				'x-timestamp': Date.now(),
+				'x-sent': true
+			}
+		};
+	} else {
+		var options = {
+			root: __dirname,
+			dotfiles: 'deny',
+			headers: {
+				'x-timestamp': Date.now(),
+				'x-sent': true
+			}
+		};
+	}
+
+
+
 
 	res.sendFile(FILE, options, function (err) {
 		if (err) {
