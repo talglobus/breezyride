@@ -94,6 +94,10 @@ app.get('/dataPredict/trafficRisk.html', function(req, res) {
 	allowServeFromDir(req, res, 'html');     // HTML is not an expected value here, but the variable is html by default
 });
 
+app.get('/route.html', function(req, res) {
+	allowServeFromDir(req, res, 'html');
+});
+
 app.listen(PORT, function () {
 	console.log('Example app listening on port ' + PORT + '!');
 });
