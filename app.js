@@ -7,7 +7,7 @@ var app = express();
 const PORT = process.env.PORT || 8080;
 
 app.get('/', function (req, res) {
-	res.send('Working');
+	res.sendFile('./index.html');
 	res.end();
 });
 
