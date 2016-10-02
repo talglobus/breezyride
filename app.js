@@ -9,13 +9,32 @@ var app = express();
 const PORT = process.env.PORT || 8080;
 
 app.get('/', function (req, res) {
-	res.writeHead(200, {"Content-Type": "text/html"});
-	// res.sendFile(path.join(__dirname + '/index.html'));
+	const FILE = './index.html';
+
+	res.statusCode = 200;
+	// res.sendFile();
 	// res.write("Working");
-	console.log("Attempting file " + path.join(__dirname + '/index.html'));
-	fs.createReadStream(path.join(__dirname + '/index.html'))
-		.pipe(res);
-	// res.end();
+
+	var options = {
+		root: __dirname,
+		dotfiles: 'deny',
+		headers: {
+			"Content-Type": "text/html",
+			'x-timestamp': Date.now(),
+			'x-sent': true
+		}
+	};
+
+	res.sendFile(FILE, options, function (err) {
+		if (err) {
+			console.log(err);
+			res.status(err.status).end();
+		}
+		else {
+			console.log('Sent:', FILE);
+			res.end();
+		}
+	});
 });
 
 app.get('/logo.png', function(req, res) {
@@ -47,28 +66,41 @@ app.listen(PORT, function () {
 });
 
 function allowServeFromDir(req, res, type) {
+	var headerMIME = "image/html";     // This is a dangerous case, as it leaves html default
 	if (type == 'jpg') {
-		res.writeHead(200, {"Content-Type": "image/jpeg"});
+		headerMIME = "image/jpeg";
 	} else if (type == 'js') {
-		res.writeHead(200, {"Content-Type": "application/javascript"});
+		headerMIME = "application/javascript";
 	} else if (type == 'css') {
-		res.writeHead(200, {"Content-Type": "text/css"});
+		headerMIME = "text/css";
 	} else if (type == 'font') {
-		res.writeHead(200, {"Content-Type": "application/font-woff"});
-	} else {
-		res.writeHead(200, {"Content-Type": "image/html"});     // This is a dangerous case, as it leaves html default
+		headerMIME = "application/font-woff";
 	}
 
-	var pathToServe = path.join(__dirname + req.url);
-	doIfFile(pathToServe, function(err, data) {
-		if (!err && !!data) {
-			fs.createReadStream(pathToServe)
-				.pipe(res);
-			console.log("Found and served file " + pathToServe);
-		} else {
-			console.error("File search failed for " + pathToServe);
-		}
+	const FILE = req.url;
 
+	res.statusCode = 200;
+
+	var options = {
+		root: __dirname,
+		dotfiles: 'deny',
+		headers: {
+			"Content-Type": headerMIME,
+			'x-timestamp': Date.now(),
+			'x-sent': true
+		}
+	};
+
+	res.sendFile(FILE, options, function (err) {
+		if (err) {
+			console.log("An error occurred while attempting to serve " + FILE);
+			console.log(err);
+			res.status(err.status).end();
+		}
+		else {
+			console.log('Sent:' + FILE);
+			res.end();
+		}
 	});
 }
 
