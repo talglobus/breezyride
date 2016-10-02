@@ -115,6 +115,8 @@ allZipCodes <- leaflet() %>%
   
 allZipCodes
 
+saveWidget(allZipCodes, file = "trafficRisk.html")
+
 # Leaflet - Crash Zip Codes Predicting Severity
 #################################################
 # mapStates = map("state", fill = TRUE, plot = FALSE)
