@@ -18,6 +18,49 @@ app.get('/', function (req, res) {
 	// res.end();
 });
 
+app.get('/images/*', function (req, res) {
+	res.writeHead(200, {"Content-Type": "text/html"});
+	var pathToServe = path.join(__dirname + req.url);
+	doIfFile(pathToServe, function(err, data) {
+		if (!err && !!data) {
+			fs.createReadStream(pathToServe)
+				.pipe(res);
+			console.log("Found and served file " + pathToServe);
+		} else {
+			console.error("File search failed for " + pathToServe);
+		}
+
+	});
+});
+
+app.get('/js/*', function (req, res) {
+	res.writeHead(200, {"Content-Type": "text/html"});
+	var pathToServe = path.join(__dirname + req.url);
+	doIfFile(pathToServe, function(err, data) {
+		if (!err && !!data) {
+			fs.createReadStream(pathToServe)
+				.pipe(res);
+			console.log("Found and served file " + pathToServe);
+		} else {
+			console.error("File search failed for " + pathToServe);
+		}
+
+	});
+});
+
 app.listen(PORT, function () {
 	console.log('Example app listening on port ' + PORT + '!');
 });
+
+function doIfFile(file, cb) {
+	fs.stat(file, function fsStat(err, stats) {
+		if (err) {
+			if (err.code === 'ENOENT') {
+				return cb(null, false);
+			} else {
+				return cb(err);
+			}
+		}
+		return cb(null, stats.isFile());
+	});
+}
