@@ -1,0 +1,9 @@
+div#the-row:after {
+	content: "Submitted";
+	top: 20px;
+	padding: 15px 30px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: relative;
+}
