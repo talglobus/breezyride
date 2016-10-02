@@ -207,6 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #leaflet {
   text-align: center;
+  height:600px;
   width:800px;
   margin-left: auto;
   margin-right: auto;
