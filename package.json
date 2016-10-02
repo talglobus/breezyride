@@ -11,6 +11,9 @@
     "url": "git+https://github.com/talglobus/breezyride.git"
   },
   "author": "Tal Globus <talglobus@gmail.com>",
+  "dependencies": {
+    "express": ">= 4.14.0"
+  },
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/talglobus/breezyride/issues"
