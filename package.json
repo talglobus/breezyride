@@ -14,7 +14,10 @@
   "dependencies": {
     "express": ">= 4.14.0",
     "path": ">= 0.12.7",
-    "fs": "*"
+    "fs": "^0.0.1"
+  },
+  "engines": {
+    "node": "6.6.0"
   },
   "license": "UNLICENSED",
   "bugs": {
