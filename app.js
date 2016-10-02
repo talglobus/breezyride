@@ -66,7 +66,7 @@ app.listen(PORT, function () {
 });
 
 function allowServeFromDir(req, res, type) {
-	var headerMIME = "image/html";     // This is a dangerous case, as it leaves html default
+	var headerMIME = "text/html";     // This is a dangerous case, as it leaves html default
 	if (type == 'jpg') {
 		headerMIME = "image/jpeg";
 	} else if (type == 'js') {
