@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
 	console.log("Attempting file " + path.join(__dirname + '/index.html'));
 	fs.createReadStream(path.join(__dirname + '/index.html'))
 		.pipe(res);
-	res.end();
+	// res.end();
 });
 
 app.listen(PORT, function () {
