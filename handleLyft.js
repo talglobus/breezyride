@@ -8,7 +8,7 @@
 
 // const INC = 12;
 const INC = 30;
-const SLOW = 100000;
+const ALERT_FREQUENCY = 10000;  // Note that this value is a divisor, and alerts decrease as value increases
 const DEBUGGING = false;
 
 var request = require('request');
@@ -52,6 +52,7 @@ function theLoop() {
 	var input = new Array(new Array());
 	var successfulPings = new Array();
 	var failedPings = new Array();
+	var seriesSent = 0; // This is the number of ALERT_FREQUENCY rounds of requests sent thus far.
 
 	var timeoutNum = 0;
 	console.log("Beginning Poll...");
@@ -75,8 +76,11 @@ function theLoop() {
 			}
 		});
 
-		if (timeoutNum % 10000 == 0) {
-			console.log("Past 10000 Pings: " + successfulPings.length + " successful, " + failedPings.length + " failed.");
+		if (timeoutNum % ALERT_FREQUENCY == 0) {
+			seriesSent++;
+			console.log(ALERT_FREQUENCY * seriesSent + " Pings Sent: " + successfulPings.length + " successful, "
+				+ failedPings.length + " failed, " + (ALERT_FREQUENCY * seriesSent - successfulPings.length
+				- failedPings.length) + " requests yet incomplete.");
 		}
 	}, INC);
 }
