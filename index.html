@@ -43,6 +43,7 @@
 	<!-- added to enable use of the Pacifico font on our website.-->
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico"/>
 
+	<!-- FavIcon -->
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 	
 	<!-- Animate.css -->
@@ -57,6 +58,8 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 
 	<link rel="stylesheet" href="css/style.css">
+
+	<link rel="stylesheet" href="css/popups.css">
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -74,16 +77,15 @@
 		        <div class="navbar-header">
 		        	<!-- Mobile Toggle Menu Button -->
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		         <a class="navbar-brand" href="index.html" id="BreezyHeader" >Breezy Ride</a> 
+		         <a class="navbar-brand" href="index.html" id="BreezyHeader" >BreezyRide</a> 
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
 		            <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
-		            <!--li><a href="#" data-nav-section="work"><span>Visual</span></a></li-->
+		            <li><a href="#" data-nav-section="about"><span>About Us</span></a></li>
 		            <li><a href="#" data-nav-section="visuals"><span>Visuals</span></a></li>
-		            <!--li><a href="#" data-nav-section="testimonials"><span>Testimonials</span></a></li-->
-		            <!--li><a href="#" data-nav-section="services"><span>Services</span></a></li-->
-		            <li><a href="#" data-nav-section="about"><span>About</span></a></li>
+		            <li><a href="#" data-nav-section="twilio"><span>Alerts</span></a></li>
+		            <li><a href="#" data-nav-section="facts"><span>Facts</span></a></li	>
 		            <li><a href="#" data-nav-section="contact"><span>Contact Us</span></a></li>
 		          </ul>
 		        </div>
@@ -111,43 +113,23 @@
 		<div class="slant"></div>
 	</section>
 
-	<!--p>Visuals section should go here</p-->
-	<section id="fh5co-visuals" data-section="visuals">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 section-heading text-center">
-					<h2 class="to-animate">Visuals</h2>
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>View the graphical information below to see how this site can help Lyft drivers save valuable time while driving.</h3>
-							<br>
-							<h3>Click <a href = "dataPredict/trafficRisk.html">here</a> to view the Zip Code risk data</h3>
-							<br>
-							<div id = "leaflet">
-								<script src = "js/trafficRisk.js"></script>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-	</section>
-
 	<section id="fh5co-about" data-section="about">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-left">
-					<h2 class=" left-border to-animate">About</h2>
+					<h2 class=" left-border to-animate">About Us</h2>
 					<div class="row">
 						<div class="col-md-8 subtext to-animate">
 					
-						<h3>The Breezy Ride team is an organization that has put serious thought into providing a resource that we believe will help Lyft drivers to avoid situations in which their time is wasted by being stuck in traffic unnecessarily.</h3>
+						<h3>The BreezyRide Team is a group of individuals that has carefully thought to develop a resource that will help Lyft drivers avoid unnecessary risk for collisions.</h3>
 
-						<h3>This web application is meant to provide the following content to benefit Lyft drivers:</h3>
+						<h3>This web application provides the following to benefit Lyft drivers:</h3>
 
 						<ul>
-							<li> Information to help drivers avoid areas prone to traffic congestion. More specifically, research has allowed us to provide predictions of areas likely to become congested in the near future to give insight to Lyft drivers.</li>
+							<li> Information to help drivers avoid areas prone to elevated risks. </li>
 							<br>
-							<li> Information to help drivers avoid areas with a probability of high accidents.</li>
+							<li> Seek alternative safer and less congested routes </li>
+							
 								</ul>
 					</div>
 
@@ -157,7 +139,97 @@
 		</div>
 	</section>
 	
+
+	<!--p>Visuals section should go here</p-->
+	<section id="fh5co-visuals" data-section="visuals">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 section-heading text-center">
+					<h2 class="to-animate">Visuals</h2>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 subtext to-animate" >
+							<h3>View the Accident Risk based on Zip Codes to visualize areas of high risk</h3>					
+							<embed height="500px" width="100%" src="dataPredict/trafficRisk.html" type="text/html">												
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 subtext to-animate">
+							<h3>Estimate the Accident Probability of your route</h3>					
+							<embed height="500px" width="100%" src="route.html" type="text/html">												
+						
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<!--Twilio-->
+	<section id="fh5co-visuals" data-section="twilio">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 section-heading text-center">
+					<h2 class="to-animate">Alerts</h2>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 subtext to-animate">
+						<h3>Enter your phone number to receive safety and <br> efficiency alerts during your travel routes!</h3>
+				
+							<form name = "phoneForm" id = "phone-form">
+								<input id = "phone-input" class = "form-control" color= "white" placeholder="Phone" type = "tel" pattern = "\(?\d{3}\)?[\s|\-]?\d{3}[\s|\-]?\d{4}" title = "Valid 10-digit US phone number" required>
+								<br>
+								<input id = "breezy-phone-submit" class = "btn btn-primary btn-lg" value = "Submit" type = "submit">
+							</form>
+
+						</div>
+					</div>
+				</div>
+					</div>
+				</div>
+			</div>
+	</section>
 	
+
+	<section id="fh5co-counters" style="background-image: url(images/full_image_1.jpg);" data-section = "facts" data-stellar-background-ratio="0.5">
+		<div class="fh5co-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 section-heading text-center to-animate">
+					<h2>Facts</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="fh5co-counter to-animate">
+						<i class="fh5co-counter-icon icon-briefcase to-animate-2"></i>
+						<span class="fh5co-counter-number js-counter" data-from="0" data-to="365" data-speed="5000" data-refresh-interval="50">365</span>
+						<span class="fh5co-counter-label">Accidents in Maryland</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="fh5co-counter to-animate">
+						<i class="fh5co-counter-icon icon-code to-animate-2"></i>
+						<span class="fh5co-counter-number js-counter" data-from="0" data-to="31" data-speed="5000" data-refresh-interval="50">31</span>
+						<span class="fh5co-counter-label">Number of Severe Accidents</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="fh5co-counter to-animate">
+						<i class="fh5co-counter-icon icon-cup to-animate-2"></i>
+						<span class="fh5co-counter-number js-counter" data-from="0" data-to="43" data-speed="5000" data-refresh-interval="50">43</span>
+						<span class="fh5co-counter-label">Mean Driver Age</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="fh5co-counter to-animate">
+						<i class="fh5co-counter-icon icon-people to-animate-2"></i>
+						<span class="fh5co-counter-number js-counter" data-from="0" data-to="80" data-speed="5000" data-refresh-interval="50">80</span>
+						<span class="fh5co-counter-label">Percent Male</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section id="fh5co-contact" data-section="contact">
 		<div class="container">
 			<div class="row">
@@ -165,7 +237,7 @@
 					<h2 class="to-animate">Contact Us</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>If a Lyft driver has any questions regarding this website resource, the Breezy Ride Team can be contacted using the information below.</h3>
+							<h3>If a Lyft driver has any questions regarding this website resource, the BreezyRide Team can be contacted using the information below.</h3>
 						</div>
 					</div>
 				</div>
@@ -178,8 +250,8 @@
 							<i class="icon-home"></i>
 							10216 ITE Building <br> 473 Blue Bench Corridor Way <br> Baltimore County, MD 21250
 						</li>
-						<li><i class="icon-phone"></i> (415) 527-3399</li>
-						<li><i class="icon-envelope"></i>breezyrideteam@gmail.com</li>
+						<li><i class="icon-phone"></i> (415) 5BR-EEZY [415-527-3397] </li>
+						<li><i class="icon-envelope"></i>team@breezyride.com</li>
 					</ul>
 				</div>
 
@@ -210,7 +282,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -230,8 +302,9 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
 	<script src="js/google_map.js"></script>
 
+
 	<!-- For demo purposes only styleswitcher ( You may delete this anytime ) -->
-	<script src="js/jquery.style.switcher.js"></script>
+<!--	<script src="js/jquery.style.switcher.js"></script>
 	<script>
 		$(function(){
 			$('#colour-variations ul').styleSwitcher({
@@ -251,6 +324,8 @@
 
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
+
+	<script src="js/breezy.js"></script>
 
 	</body>
 </html>
