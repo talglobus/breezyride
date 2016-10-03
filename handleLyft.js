@@ -50,25 +50,34 @@ function queryLocation(lat, long, cb) {
 
 function theLoop() {
 	var input = new Array(new Array());
+	var successfulPings = new Array();
+	var failedPings = new Array();
 
 	var timeoutNum = 0;
 	console.log("Beginning Poll...");
 	setInterval(function() {
 		timeoutNum++;
 		var i = timeoutNum % 38;
-		console.log("Poll " + timeoutNum + ": (" + points[i].lat + ", " + points[i].long + ")");
+		// console.log("Poll " + timeoutNum + ": (" + points[i].lat + ", " + points[i].long + ")");
 		// console.log(timeoutNum + ": " + points[i]);
 		queryLocation(points[i].lat, points[i].long, function(err, res){
 			if (!err && res) {
 				// input[i].push(res);
-				console.log(timeoutNum + ":");
-				console.log(res['nearby_drivers'][0].drivers);
+				// console.log(timeoutNum + ":");
+				// var numSectionDrivers = res['nearby_drivers'][0].drivers.length;
+				// console.log(numSectionDrivers + " drivers on the road in section " + timeoutNum % 38);
+				successfulPings.push(res);
 			} else {
-				console.log("Error:  " + err);
-				console.log("Result: " + res);
 				console.error("Search for X: " + points[i].x + ", Y: " + points[i].y + " failed");
+				debugLog("Error:  " + err);
+				debugLog("Result: " + res);
+				failedPings.push(new Array(err, res));
 			}
 		});
+
+		if (timeoutNum % 10000 == 0) {
+			console.log("Past 10000 Pings: " + successfulPings.length + " successful, " + failedPings.length + " failed.");
+		}
 	}, INC);
 }
 
