@@ -8,7 +8,7 @@
 
 // const INC = 12;
 const INC = 30;
-const ALERT_FREQUENCY = 10000;  // Note that this value is a divisor, and alerts decrease as value increases
+const ALERT_FREQUENCY = 100;  // Note that this value is a divisor, and alerts decrease as value increases
 const DEBUGGING = false;
 
 var request = require('request');
@@ -49,9 +49,12 @@ function queryLocation(lat, long, cb) {
 }
 
 function theLoop() {
-	var input = new Array(new Array());
 	var successfulPings = new Array();
 	var failedPings = new Array();
+
+	var recentSuccessfulPings = new Array();
+	var recentFailedPings = new Array();
+
 	var seriesSent = 0; // This is the number of ALERT_FREQUENCY rounds of requests sent thus far.
 
 	var timeoutNum = 0;
@@ -67,20 +70,41 @@ function theLoop() {
 				// console.log(timeoutNum + ":");
 				// var numSectionDrivers = res['nearby_drivers'][0].drivers.length;
 				// console.log(numSectionDrivers + " drivers on the road in section " + timeoutNum % 38);
-				successfulPings.push(res);
+				recentSuccessfulPings.push(res);
 			} else {
 				console.error("Search for X: " + points[i].x + ", Y: " + points[i].y + " failed");
 				debugLog("Error:  " + err);
 				debugLog("Result: " + res);
-				failedPings.push(new Array(err, res));
+				recentFailedPings.push(new Array(err, res));
 			}
 		});
 
+
 		if (timeoutNum % ALERT_FREQUENCY == 0) {
 			seriesSent++;
-			console.log(ALERT_FREQUENCY * seriesSent + " Pings Sent: " + successfulPings.length + " successful, "
-				+ failedPings.length + " failed, " + (ALERT_FREQUENCY * seriesSent - successfulPings.length
-				- failedPings.length) + " requests yet incomplete.");
+
+			var numRecentSuccessful = recentSuccessfulPings.length,
+				numRecentFailed = recentFailedPings.length,
+				totalSent = ALERT_FREQUENCY * seriesSent,
+				totalSuccessful = successfulPings.length + recentSuccessfulPings.length,
+				totalFailed = failedPings.length + recentFailedPings.length;
+
+			console.log(totalSent + " Pings Sent: " + totalSuccessful + " successful, " + totalFailed  + " failed, "
+				+ (totalSent - totalSuccessful - totalFailed) + " requests yet incomplete.");
+
+			console.log("Most recent " + ALERT_FREQUENCY + " Pings Sent: " + numRecentSuccessful  + " successful, "
+				+ numRecentFailed + " failed, " + (ALERT_FREQUENCY - numRecentSuccessful - numRecentFailed)
+				+ " yet incomplete.");
+
+			console.log("Of the past " + ALERT_FREQUENCY + " pings, " + (numRecentSuccessful / ALERT_FREQUENCY * 100)
+				+ "% have been successful, " + (numRecentFailed / ALERT_FREQUENCY * 100) + "% have failed, and "
+				+ ((ALERT_FREQUENCY - numRecentSuccessful - numRecentFailed) / 100) + "% are yet incomplete.");
+
+			successfulPings = successfulPings.concat(recentSuccessfulPings);
+			recentSuccessfulPings = [];
+
+			failedPings = failedPings.concat(recentFailedPings);
+			recentFailedPings = [];
 		}
 	}, INC);
 }
@@ -109,6 +133,6 @@ queryLocation(40.7589, -73.9851, function(err, res){
 
 function debugLog(input) {
 	if (DEBUGGING) {
-		debugLog(input);
+		console.error(input);
 	}
 }
