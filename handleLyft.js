@@ -85,7 +85,7 @@ function theLoop() {
 				console.error("Search for X: " + points[i].x + ", Y: " + points[i].y + " failed");
 				debugLog("Error:  " + err);
 				debugLog("Result: " + res);
-				recentFailedPings.push(new Array(err, res));
+				recentFailedPings.push([err, res]);
 				// failLog.logJSON(new Array(err, res));
 			}
 		});
