@@ -109,6 +109,14 @@ app.get('/welcome/*', function(req, res) {
 	sendSMS(phone, "Welcome to the BreezyRide alert system. We'll now let you know when you could be traveling more safely, quickly or efficiently.");
 });
 
+app.get('/icon/*', function(req, res) {
+	allowServeFromDir(req, res, '');
+});
+
+app.get('/favicon.ico', function(req, res) {
+	allowServeFromDir(req, res, '')
+});
+
 app.listen(PORT, function () {
 	console.log('Example app listening on port ' + PORT + '!');
 });
