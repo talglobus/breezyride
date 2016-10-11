@@ -14,11 +14,24 @@ module.exports = sendMessage;
 function sendMessage(phone, msg) {
 	client.messages.create({
 		to: phone,
-		from: "415-527-3399",
+		// from: "415-527-3399",
+		from: "BreezyRide",
 		body: msg
 	}, function (err, message) {
 		if (!err) {
-			console.log(message.sid);
+			console.log("Send " + message.sid + " as BreezyRide");
+		} else if (err.status == 400) {
+			client.messages.create({
+				to: phone,
+				from: "415-527-3399",
+				body: msg
+			}, function (err, message) {
+				if (!err) {
+					console.log("Sent " + message.sid + " as 415-527-3399");
+				} else {
+					console.log(err);
+				}
+			});
 		} else {
 			console.log(err);
 		}
